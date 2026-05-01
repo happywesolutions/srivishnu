@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery — Sri Vishnu Safety Nets</title>
+<meta name="description" content="Browse our gallery of safety net installations and finished work." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .page-hero{background:linear-gradient(135deg,#141414,rgba(255,122,24,.7));color:#fff;padding:80px 0 60px;text-align:center}
+  .page-hero h1{font-size:clamp(36px,5vw,56px);margin-bottom:14px}
+  .page-hero p{font-size:18px;opacity:.9}
+  .masonry{column-count:3;column-gap:18px;margin:60px 0 80px}
+  @media(max-width:900px){.masonry{column-count:2}}
+  @media(max-width:600px){.masonry{column-count:1}}
+  .masonry img{width:100%;border-radius:14px;margin-bottom:18px;break-inside:avoid;box-shadow:0 8px 22px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;cursor:pointer}
+  .masonry img:hover{transform:scale(1.02);box-shadow:0 14px 30px rgba(0,0,0,.15)}
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:1000;padding:20px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:95%;max-height:90vh;border-radius:10px}
+  .lightbox .close{position:absolute;top:20px;right:24px;color:#fff;font-size:38px;cursor:pointer;background:none;border:none}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Gallery</h1>
+    <p>A look at our finished installations and craftsmanship.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="masonry" id="gal"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lb">
+  <button class="close" id="lbClose">×</button>
+  <img id="lbImg" src="" alt="" />
+</div>
+
+<div id="site-footer"></div>
+<div id="site-floating"></div>
+<script src="site.js"></script>
+<script>
+  const IMGS = [
+    "balcony-net.jpg","bird-net.jpg","building-net.jpg","kids-net.jpg",
+    "pigeon-net.jpg","pool-net.jpg","staircase-net.jpg","terrace-net.jpg",
+    "invisible-grill.jpg","mosquito-net.jpg","sports-net.jpg","cloth-hanger.jpg",
+    "bird-spikes.jpg","duct-net.jpg","monkey-net.jpg","pet-net.jpg",
+    "shade-net.jpg","window-net.jpg","property-net.jpg","safety-net.jpg"
+  ];
+  document.getElementById("gal").innerHTML = IMGS.map(i =>
+    `<img src="images/${i}" alt="${i.replace('.jpg','').replace(/-/g,' ')}" loading="lazy" />`
+  ).join("");
+
+  const lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg");
+  document.getElementById("gal").addEventListener("click", e => {
+    if (e.target.tagName === "IMG") { lbImg.src = e.target.src; lb.classList.add("open"); }
+  });
+  document.getElementById("lbClose").addEventListener("click", () => lb.classList.remove("open"));
+  lb.addEventListener("click", e => { if (e.target === lb) lb.classList.remove("open"); });
+
+  SVSN.renderHeader("Gallery");
+  SVSN.renderFooter();
+  SVSN.renderFloating();
+</script>
+</body>
+</html>

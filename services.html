@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Services — Sri Vishnu Safety Nets</title>
+<meta name="description" content="Complete safety net services — balcony, building, pool, kids, pigeon, monkey, sports nets and more. Call 9652518763." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .page-hero{
+    background:linear-gradient(135deg,#1a1a1a 0%,#2d1e0f 100%);
+    color:#fff;padding:80px 20px;text-align:center;position:relative;overflow:hidden;
+  }
+  .page-hero::before,.page-hero::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(80px);opacity:.4}
+  .page-hero::before{background:var(--orange);top:-100px;right:-100px}
+  .page-hero::after{background:var(--orange-glow);bottom:-100px;left:-100px;opacity:.2}
+  .page-hero .crumb{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:14px;position:relative}
+  .page-hero h1{font-size:clamp(36px,6vw,64px);margin-bottom:14px;position:relative}
+  .page-hero p{font-size:18px;color:rgba(255,255,255,.8);max-width:640px;margin:0 auto;position:relative}
+
+  .filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:50px 0 30px}
+  .filter-btn{
+    background:#fff;border:1.5px solid var(--border);padding:10px 22px;border-radius:999px;
+    font-weight:600;font-size:14px;cursor:pointer;transition:.2s;color:var(--black);font-family:inherit;
+  }
+  .filter-btn:hover{border-color:var(--orange);color:var(--orange)}
+  .filter-btn.active{background:var(--orange);color:#fff;border-color:var(--orange);box-shadow:0 8px 20px rgba(255,122,24,.3)}
+
+  .search-wrap{max-width:420px;margin:0 auto 40px;position:relative}
+  .search-wrap input{width:100%;padding:14px 18px 14px 46px;border:1.5px solid var(--border);border-radius:999px;font-size:15px;font-family:inherit;background:#fff;outline:none;transition:border-color .2s}
+  .search-wrap input:focus{border-color:var(--orange)}
+  .search-wrap svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--grey)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;padding-bottom:80px}
+  .card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.04);transition:.35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;cursor:pointer;animation:fadeIn .6s ease both}
+  .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(255,122,24,.15);border-color:rgba(255,122,24,.3)}
+  .card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eee}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .card:hover .card-img img{transform:scale(1.1)}
+  .card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,.55),transparent 50%)}
+  .card-logo{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:6px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.1);z-index:1}
+  .card-logo img{width:34px;height:34px;object-fit:contain}
+  .badge{position:absolute;bottom:12px;left:12px;z-index:1;background:var(--orange);color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:6px;letter-spacing:.05em;text-transform:uppercase}
+  .card-body{padding:20px;display:flex;flex-direction:column;flex:1}
+  .card-body h3{font-size:18px;margin-bottom:6px;color:var(--black);transition:color .2s}
+  .card:hover .card-body h3{color:var(--orange)}
+  .card-body p{font-size:14px;color:var(--grey);flex:1}
+  .card-cta{margin-top:14px;color:var(--orange);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px}
+  .empty{text-align:center;padding:60px 20px;color:var(--grey);grid-column:1/-1}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <p class="crumb"><a href="index.html">Home</a> / <span style="color:var(--orange)">Services</span></p>
+  <h1>Our Services</h1>
+  <p>Complete safety net solutions — meticulously installed for homes, businesses and sports facilities.</p>
+</section>
+
+<div class="container">
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="search" type="text" placeholder="Search services..." />
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-cat="all">All Services</button>
+    <button class="filter-btn" data-cat="safety">Safety Nets</button>
+    <button class="filter-btn" data-cat="bird">Bird Nets</button>
+    <button class="filter-btn" data-cat="other">Other Services</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<div id="site-footer"></div>
+<div id="site-floating"></div>
+
+<script src="site.js"></script>
+<script>
+const SERVICES = [
+  {t:"Safety Nets",d:"Premium balcony & building safety nets installed by experts.",img:"safety-net.jpg",cat:"safety",slug:"safety-nets"},
+  {t:"Balcony Safety Nets",d:"Invisible nylon nets to safeguard balconies.",img:"balcony-net.jpg",cat:"safety",slug:"balcony-safety-nets"},
+  {t:"Kids Safety Nets",d:"Child-safe transparent balcony nets for peace of mind.",img:"kids-net.jpg",cat:"safety",slug:"kids-safety-nets"},
+  {t:"Window Safety Nets",d:"Secure window protection without blocking the view.",img:"window-net.jpg",cat:"safety",slug:"window-safety-nets"},
+  {t:"Terrace Safety Nets",d:"Full terrace coverage from above for total safety.",img:"terrace-net.jpg",cat:"safety",slug:"terrace-safety-nets"},
+  {t:"Swimming Pool Safety Nets",d:"Strong protective covers for residential pools.",img:"pool-net.jpg",cat:"safety",slug:"swimming-pool-safety-nets"},
+  {t:"Staircase Safety Nets",d:"Safe stairwells for kids, pets and elders.",img:"staircase-net.jpg",cat:"safety",slug:"staircase-safety-nets"},
+  {t:"Building Coverage Nets",d:"Construction-site safety nets for high-rise buildings.",img:"building-net.jpg",cat:"safety",slug:"building-coverage-nets"},
+  {t:"Property Safety Nets",d:"Complete property perimeter protection.",img:"property-net.jpg",cat:"safety",slug:"property-safety-nets"},
+  {t:"Bird Nets",d:"Anti-bird nets that keep buildings clean and safe.",img:"bird-net.jpg",cat:"bird",slug:"bird-nets"},
+  {t:"Pigeon Safety Nets",d:"Stop pigeons & their mess from balconies and ducts.",img:"pigeon-net.jpg",cat:"bird",slug:"pigeon-safety-nets"},
+  {t:"Duct Area Safety Nets",d:"Block ducts from birds, debris and animals.",img:"duct-net.jpg",cat:"bird",slug:"duct-area-safety-nets"},
+  {t:"Monkey Safety Nets",d:"Heavy-duty monkey-proof nets for full protection.",img:"monkey-net.jpg",cat:"bird",slug:"monkey-safety-nets"},
+  {t:"Bird Spikes",d:"Stainless-steel spikes to deter perching birds.",img:"bird-spikes.jpg",cat:"bird",slug:"bird-spikes"},
+  {t:"Invisible Grills",d:"Stainless-steel cable grills with a clean look.",img:"invisible-grill.jpg",cat:"other",slug:"invisible-grills"},
+  {t:"Cloth Hangers",d:"Durable ceiling-mounted balcony cloth hangers.",img:"cloth-hanger.jpg",cat:"other",slug:"cloth-hangers"},
+  {t:"Mosquito Nets",d:"Window & door nets to keep insects out.",img:"mosquito-net.jpg",cat:"other",slug:"mosquito-nets"},
+  {t:"Pets Safety Nets",d:"Keep cats and dogs safe on balconies.",img:"pet-net.jpg",cat:"other",slug:"pets-safety-nets"},
+  {t:"Shade Nets",d:"Cooling agro & garden shade nets.",img:"shade-net.jpg",cat:"other",slug:"shade-nets"},
+  {t:"Sports Nets",d:"Cricket, football & sports practice nets.",img:"sports-net.jpg",cat:"other",slug:"sports-nets"},
+];
+const CAT_LABEL = {safety:"Safety",bird:"Bird Control",other:"Add-On"};
+const grid = document.getElementById('grid');
+const search = document.getElementById('search');
+const filters = document.getElementById('filters');
+let activeCat = new URLSearchParams(location.search).get("cat") || 'all';
+
+// pre-select filter from URL
+filters.querySelectorAll('.filter-btn').forEach(b => {
+  b.classList.toggle('active', b.dataset.cat === activeCat);
+});
+
+function render() {
+  const q = search.value.trim().toLowerCase();
+  const list = SERVICES.filter(s =>
+    (activeCat === 'all' || s.cat === activeCat) &&
+    (!q || s.t.toLowerCase().includes(q) || s.d.toLowerCase().includes(q))
+  );
+  if (!list.length) { grid.innerHTML = '<div class="empty">No services match your search.</div>'; return; }
+  grid.innerHTML = list.map((s,i) => `
+    <a href="services/${s.slug}.html" class="card" style="animation-delay:${i*40}ms">
+      <div class="card-img">
+        <div class="card-logo"><img src="images/logo.png" alt="" loading="lazy" /></div>
+        <span class="badge">${CAT_LABEL[s.cat]}</span>
+        <img src="images/${s.img}" alt="${s.t}" loading="lazy" />
+      </div>
+      <div class="card-body"><h3>${s.t}</h3><p>${s.d}</p><span class="card-cta">Learn More →</span></div>
+    </a>
+  `).join('');
+}
+
+filters.addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn'); if (!btn) return;
+  filters.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeCat = btn.dataset.cat;
+  render();
+});
+search.addEventListener('input', render);
+
+SVSN.renderHeader();
+SVSN.renderFooter();
+SVSN.renderFloating();
+render();
+</script>
+</body>
+</html>

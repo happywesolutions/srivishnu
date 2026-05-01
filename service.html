@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Service Details — Sri Vishnu Safety Nets</title>
+<meta name="description" content="Detailed information about our safety net installation services." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .page-hero{background:linear-gradient(135deg,#141414,rgba(255,122,24,.7));color:#fff;padding:70px 0 50px}
+  .page-hero .crumb{font-size:13px;opacity:.85;margin-bottom:10px}
+  .page-hero .crumb a{color:#fff;text-decoration:underline}
+  .page-hero h1{font-size:clamp(32px,5vw,52px)}
+  .detail{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;margin:50px 0 70px;align-items:flex-start}
+  @media(max-width:900px){.detail{grid-template-columns:1fr}}
+  .detail img{width:100%;border-radius:18px;box-shadow:0 18px 44px rgba(0,0,0,.15)}
+  .detail h2{font-size:28px;margin-bottom:12px}
+  .detail p{color:#555;line-height:1.75;margin-bottom:14px}
+  .feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+  .feats div{background:#fff7f0;border:1px solid #ffd9b8;border-radius:10px;padding:10px 14px;font-size:14px;color:#5a3010}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+  .ctas a{padding:13px 26px;border-radius:12px;font-weight:600;display:inline-flex;gap:8px;align-items:center}
+  .ctas .call{background:linear-gradient(135deg,var(--orange),var(--orange-glow));color:#fff;box-shadow:0 10px 24px rgba(255,122,24,.35)}
+  .ctas .wa{background:#25d366;color:#fff}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> › <a href="services.html">Services</a> › <span id="bcName">Service</span></div>
+    <h1 id="title">Service</h1>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="detail">
+      <img id="img" src="" alt="" />
+      <div>
+        <h2 id="h2">About this service</h2>
+        <p id="desc"></p>
+        <div class="feats">
+          <div>✓ Premium UV-resistant material</div>
+          <div>✓ Professional installation</div>
+          <div>✓ Long-lasting durability</div>
+          <div>✓ Free site inspection</div>
+        </div>
+        <p style="color:#444"><strong>Why choose us?</strong> 10+ years of experience, 5000+ successful installations, and full customer satisfaction.</p>
+        <div class="ctas">
+          <a class="call" href="tel:9652518763">📞 Call 9652518763</a>
+          <a class="wa" id="waBtn" target="_blank" rel="noopener">💬 WhatsApp Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-floating"></div>
+<script src="site.js"></script>
+<script>
+  const SERVICES = {
+    "balcony-safety-nets":{n:"Balcony Safety Nets",img:"balcony-net.jpg",d:"Heavy-duty balcony safety nets to prevent falls of children, pets, and objects. UV-stabilized HDPE material that lasts for years."},
+    "swimming-pool-safety-nets":{n:"Swimming Pool Safety Nets",img:"pool-net.jpg",d:"Strong woven nets that walk over your swimming pool to prevent accidental falls — ideal for homes with kids and pets."},
+    "kids-safety-nets":{n:"Kids Safety Nets",img:"kids-net.jpg",d:"Specially designed safety nets to protect children in balconies, staircases, and open windows."},
+    "staircase-safety-nets":{n:"Staircase Safety Nets",img:"staircase-net.jpg",d:"Sturdy nets that secure staircase openings — perfect for duplex homes and toddlers."},
+    "terrace-safety-nets":{n:"Terrace Safety Nets",img:"terrace-net.jpg",d:"Cover open terraces to keep birds and debris out while keeping the area usable."},
+    "duct-area-safety-nets":{n:"Duct Area Safety Nets",img:"duct-net.jpg",d:"Block ducts from pigeons and pests without restricting ventilation."},
+    "building-coverage-nets":{n:"Building Coverage Nets",img:"building-net.jpg",d:"Full building façade nets for construction sites and large coverage requirements."},
+    "window-safety-nets":{n:"Window Safety Nets",img:"window-net.jpg",d:"Discreet and strong window nets to prevent falls and bird intrusion."},
+    "sports-nets":{n:"Sports Nets",img:"sports-net.jpg",d:"Cricket, badminton, golf and football nets for clubs, schools and home practice."},
+    "property-safety-nets":{n:"Property Safety Nets",img:"property-net.jpg",d:"Comprehensive property protection nets for full perimeter coverage."},
+    "bird-nets":{n:"Bird Nets",img:"bird-net.jpg",d:"Anti-bird nets for balconies, terraces, and ducts — humane and effective."},
+    "pigeon-safety-nets":{n:"Pigeon Safety Nets",img:"pigeon-net.jpg",d:"Specifically designed nets to keep pigeons out without harming them."},
+    "monkey-safety-nets":{n:"Monkey Safety Nets",img:"monkey-net.jpg",d:"Heavy-gauge nets designed to keep monkeys away from balconies and terraces."},
+    "bird-spikes":{n:"Bird Spikes",img:"bird-spikes.jpg",d:"Stainless steel spikes that prevent birds from landing on ledges and parapets."},
+    "invisible-grills":{n:"Invisible Grills",img:"invisible-grill.jpg",d:"Modern, see-through stainless steel safety grills that don't block your view."},
+    "cloth-hangers":{n:"Cloth Hangers",img:"cloth-hanger.jpg",d:"Ceiling-mounted pulley cloth hangers, perfect for balconies and utility areas."},
+    "mosquito-nets":{n:"Mosquito Nets",img:"mosquito-net.jpg",d:"Window and door mosquito mesh — keep insects out, fresh air in."},
+    "pets-safety-nets":{n:"Pets Safety Nets",img:"pet-net.jpg",d:"Keep your pets safe in balconies and open spaces."},
+    "shade-nets":{n:"Shade Nets",img:"shade-net.jpg",d:"Sun protection nets for terraces, gardens, and parking areas."},
+  };
+
+  const slug = new URLSearchParams(location.search).get("s") || "balcony-safety-nets";
+  const s = SERVICES[slug] || SERVICES["balcony-safety-nets"];
+  document.title = `${s.n} — Sri Vishnu Safety Nets`;
+  document.getElementById("title").textContent = s.n;
+  document.getElementById("bcName").textContent = s.n;
+  document.getElementById("h2").textContent = `About ${s.n}`;
+  document.getElementById("desc").textContent = s.d;
+  document.getElementById("img").src = `images/${s.img}`;
+  document.getElementById("img").alt = s.n;
+  document.getElementById("waBtn").href = `https://wa.me/919652518763?text=${encodeURIComponent("Hi, I'd like a quote for "+s.n)}`;
+
+  SVSN.renderHeader("");
+  SVSN.renderFooter();
+  SVSN.renderFloating();
+</script>
+</body>
+</html>

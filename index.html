@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sri Vishnu Safety Nets — Trusted Safety Net Installation</title>
+<meta name="description" content="Professional safety net installation for balconies, windows, buildings, pools, sports & more. Call 9652518763 for a free quote." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* === Home page-specific === */
+  .hero{position:relative;overflow:hidden;color:#fff;min-height:600px;display:flex;align-items:center}
+  .hero .slides{position:absolute;inset:0}
+  .hero .slide{
+    position:absolute;inset:0;background-size:cover;background-position:center;
+    opacity:0;transition:opacity 1.2s ease-in-out,transform 6s ease-out;
+  }
+  .hero .slide.active{opacity:1;transform:scale(1.06)}
+  .hero .overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(20,20,20,.85),rgba(255,122,24,.55));
+  }
+  .hero .container{position:relative;padding:90px 20px;width:100%}
+  .hero .badge{
+    display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;
+    background:rgba(255,122,24,.2);border:1px solid rgba(255,122,24,.5);font-size:13px;font-weight:500;margin-bottom:24px;
+    backdrop-filter:blur(8px);
+  }
+  .hero h1{font-size:clamp(36px,6vw,72px);line-height:1.05;margin-bottom:20px;max-width:800px}
+  .hero h1 .accent{color:var(--orange)}
+  .hero p.lead{font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.9);max-width:640px;margin-bottom:36px}
+  .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+  .btn-hero{
+    background:linear-gradient(135deg,var(--orange),var(--orange-glow));color:#fff;
+    padding:16px 32px;border-radius:14px;font-weight:600;font-size:16px;display:inline-flex;align-items:center;gap:10px;
+    box-shadow:0 12px 30px rgba(255,122,24,.4);transition:transform .2s,box-shadow .2s;
+  }
+  .btn-hero:hover{transform:scale(1.05)}
+  .btn-outline{
+    border:2px solid #fff;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);
+    color:#fff;padding:14px 32px;border-radius:14px;font-weight:600;font-size:16px;display:inline-flex;align-items:center;gap:10px;
+    transition:.2s
+  }
+  .btn-outline:hover{background:#fff;color:var(--black)}
+  .indicators{display:flex;gap:8px;margin-bottom:36px}
+  .indicators button{
+    height:6px;border:0;border-radius:99px;cursor:pointer;background:rgba(255,255,255,.4);transition:.3s;width:20px;padding:0;
+  }
+  .indicators button.active{background:var(--orange);width:40px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:560px}
+  .stat{
+    background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);
+    border-radius:14px;padding:16px
+  }
+  .stat .v{font-family:'Poppins';font-weight:800;font-size:22px}
+  .stat .l{font-size:12px;color:rgba(255,255,255,.8)}
+
+  /* Sections */
+  section.block{padding:80px 0}
+  section.block.alt{background:#fff}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 50px}
+  .section-head .eyebrow{color:var(--orange);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+  .section-head h2{font-size:clamp(28px,4vw,46px);margin:10px 0 14px}
+  .section-head p{color:var(--grey);font-size:17px}
+
+  /* Service cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+  .card{
+    background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--border);
+    box-shadow:0 4px 20px rgba(0,0,0,.04);transition:.35s cubic-bezier(.4,0,.2,1);
+    display:flex;flex-direction:column;animation:fadeIn .6s ease both
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(255,122,24,.15);border-color:rgba(255,122,24,.3)}
+  .card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eee}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .card:hover .card-img img{transform:scale(1.1)}
+  .card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,.4),transparent 50%)}
+  .card-logo{
+    position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);
+    padding:6px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.1);z-index:1
+  }
+  .card-logo img{width:34px;height:34px;object-fit:contain}
+  .card-body{padding:18px}
+  .card-body h3{font-size:17px;margin-bottom:6px;transition:.2s}
+  .card:hover .card-body h3{color:var(--orange)}
+  .card-body p{font-size:13.5px;color:var(--grey)}
+  .center{text-align:center;margin-top:40px}
+  .btn-link{
+    display:inline-block;padding:14px 32px;border-radius:12px;
+    background:linear-gradient(135deg,var(--orange),var(--orange-glow));color:#fff;
+    font-weight:600;box-shadow:0 8px 20px rgba(255,122,24,.3);transition:.2s
+  }
+  .btn-link:hover{transform:scale(1.05)}
+
+  /* Why us */
+  .why{background:linear-gradient(135deg,#1a1a1a 0%,#2d1e0f 100%);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+  .why::before,.why::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;filter:blur(100px);opacity:.3}
+  .why::before{background:var(--orange);top:-150px;right:-150px}
+  .why::after{background:var(--orange-glow);bottom:-150px;left:-150px;opacity:.15}
+  .why .section-head h2{color:#fff}
+  .why .section-head p{color:rgba(255,255,255,.7)}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;position:relative}
+  .why-card{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;
+    transition:.3s
+  }
+  .why-card:hover{background:rgba(255,255,255,.1);border-color:rgba(255,122,24,.4)}
+  .why-card .ic{
+    width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--orange),var(--orange-glow));font-size:26px;margin-bottom:14px
+  }
+  .why-card h3{font-size:17px;margin-bottom:6px}
+  .why-card p{font-size:13.5px;color:rgba(255,255,255,.7)}
+
+  /* About */
+  .about-row{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  @media(max-width:860px){.about-row{grid-template-columns:1fr}}
+  .about-img{
+    background:#fff;border-radius:24px;padding:50px;border:1px solid var(--border);
+    box-shadow:0 20px 50px rgba(255,122,24,.12);text-align:center;position:relative
+  }
+  .about-img img{width:200px;margin:0 auto}
+  .about-text .eyebrow{color:var(--orange);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+  .about-text h2{font-size:clamp(28px,4vw,42px);margin:10px 0 18px}
+  .about-text h2 .accent{color:var(--orange)}
+  .about-text p{font-size:17px;color:var(--grey);margin-bottom:24px;line-height:1.6}
+  .about-text ul{list-style:none;margin-bottom:28px}
+  .about-text li{display:flex;gap:12px;padding:8px 0;font-size:15px}
+  .about-text li::before{content:"✓";color:var(--orange);font-weight:800;font-size:18px}
+
+  /* Projects */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+  .project{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);cursor:pointer;aspect-ratio:4/3}
+  .project img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .project:hover img{transform:scale(1.1)}
+  .project::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,.92),rgba(20,20,20,.2) 50%,transparent)}
+  .project-info{position:absolute;left:0;right:0;bottom:0;padding:20px;color:#fff;z-index:1}
+  .project-info .cat{display:inline-block;background:var(--orange);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;margin-bottom:8px}
+  .project-info h3{font-family:'Poppins';font-weight:700;font-size:18px}
+
+  /* Gallery */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:760px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+  .gallery-item{overflow:hidden;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.06);aspect-ratio:1/1}
+  .gallery-item.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .gallery-item:hover img{transform:scale(1.1)}
+
+  /* Contact */
+  .contact-row{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  @media(max-width:860px){.contact-row{grid-template-columns:1fr}}
+  .info-card{
+    background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;
+    display:flex;align-items:center;gap:18px;transition:.2s;margin-bottom:14px
+  }
+  .info-card:hover{border-color:var(--orange)}
+  .info-card .ic{
+    width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--orange),var(--orange-glow));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;flex-shrink:0
+  }
+  .info-card .lab{font-size:13px;color:var(--grey)}
+  .info-card .val{font-family:'Poppins';font-weight:700;font-size:18px}
+  .form-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:30px}
+  .form-card label{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
+  .form-card input,.form-card textarea{
+    width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;
+    font-family:inherit;font-size:14px;outline:none;transition:.2s;margin-bottom:16px;background:#fff
+  }
+  .form-card input:focus,.form-card textarea:focus{border-color:var(--orange)}
+  .form-card button{
+    width:100%;padding:14px;border:0;border-radius:12px;cursor:pointer;
+    background:linear-gradient(135deg,var(--orange),var(--orange-glow));color:#fff;
+    font-weight:600;font-size:15px;transition:.2s
+  }
+  .form-card button:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(255,122,24,.35)}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- HERO with rotating images -->
+<section class="hero">
+  <div class="slides" id="heroSlides">
+    <div class="slide active" style="background-image:url('images/hero.jpg')"></div>
+    <div class="slide" style="background-image:url('images/balcony-net.jpg')"></div>
+    <div class="slide" style="background-image:url('images/kids-net.jpg')"></div>
+  </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <span class="badge">🛡️ Hyderabad's Trusted Safety Net Specialists</span>
+    <h1>Protect Your Family & Property with <span class="accent">Trusted Safety Nets</span></h1>
+    <p class="lead">Professional installation for balconies, windows, buildings, and more. Durable materials, fast service, and unbeatable peace of mind.</p>
+    <div class="hero-buttons">
+      <a href="tel:9652518763" class="btn-hero">📞 Call Now</a>
+      <a href="contact.html" class="btn-outline">Get Quote →</a>
+    </div>
+    <div class="indicators" id="heroDots"></div>
+    <div class="stats">
+      <div class="stat"><div class="v">5,000+</div><div class="l">Happy Clients</div></div>
+      <div class="stat"><div class="v">4.9/5</div><div class="l">Customer Rating</div></div>
+      <div class="stat"><div class="v">10+ yrs</div><div class="l">Experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES preview -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Services</div>
+      <h2>Complete Safety Net Solutions</h2>
+      <p>From balconies to entire buildings, we install durable nets tailored to your needs.</p>
+    </div>
+    <div class="grid" id="servicesGrid"></div>
+    <div class="center"><a href="services.html" class="btn-link">View All Services →</a></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--orange)">Why Choose Us</div>
+      <h2>The Trusted Choice for Safety</h2>
+      <p>Quality, reliability, and customer satisfaction in every installation.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="ic">🏆</div><h3>High Quality Materials</h3><p>Premium-grade nylon & HDPE nets that last for years.</p></div>
+      <div class="why-card"><div class="ic">💰</div><h3>Affordable Pricing</h3><p>Transparent quotes with no hidden costs.</p></div>
+      <div class="why-card"><div class="ic">⚡</div><h3>Quick Installation</h3><p>Most jobs completed within hours, not days.</p></div>
+      <div class="why-card"><div class="ic">👷</div><h3>Experienced Team</h3><p>Skilled installers with 10+ years of expertise.</p></div>
+      <div class="why-card"><div class="ic">📞</div><h3>24/7 Support</h3><p>Always reachable for service & after-care.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="block alt">
+  <div class="container">
+    <div class="about-row">
+      <div class="about-img"><img src="images/logo.png" alt="Sri Vishnu Safety Nets" /></div>
+      <div class="about-text">
+        <div class="eyebrow">About Us</div>
+        <h2>Reliable Protection You Can <span class="accent">Count On</span></h2>
+        <p><strong>SRI VISHNU SAFETY NETS</strong> provides reliable and durable safety net solutions for homes and businesses. We ensure safety, quality, and customer satisfaction with every project.</p>
+        <ul>
+          <li>Reliable & durable safety net solutions</li>
+          <li>Tailored installations for homes & businesses</li>
+          <li>Top-rated customer satisfaction</li>
+          <li>Fast quotes and on-time delivery</li>
+        </ul>
+        <a href="contact.html" class="btn-link">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Projects</div>
+      <h2>Recently Completed Work</h2>
+      <p>A glimpse of installations across homes, offices, and sports venues.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project"><img src="images/balcony-net.jpg" alt="Balcony Safety Net" loading="lazy" /><div class="project-info"><span class="cat">Residential</span><h3>Balcony Safety Net</h3></div></div>
+      <div class="project"><img src="images/pigeon-net.jpg" alt="Anti-Pigeon Net" loading="lazy" /><div class="project-info"><span class="cat">Commercial</span><h3>Anti-Pigeon Net</h3></div></div>
+      <div class="project"><img src="images/kids-net.jpg" alt="Children Safety Net" loading="lazy" /><div class="project-info"><span class="cat">Apartment</span><h3>Children Safety Net</h3></div></div>
+      <div class="project"><img src="images/sports-net.jpg" alt="Cricket Practice Net" loading="lazy" /><div class="project-info"><span class="cat">Sports</span><h3>Cricket Practice Net</h3></div></div>
+      <div class="project"><img src="images/pool-net.jpg" alt="Pool Safety Cover" loading="lazy" /><div class="project-info"><span class="cat">Villa</span><h3>Pool Safety Cover</h3></div></div>
+      <div class="project"><img src="images/invisible-grill.jpg" alt="Invisible Grill" loading="lazy" /><div class="project-info"><span class="cat">Window</span><h3>Invisible Grill</h3></div></div>
+    </div>
+    <div class="center"><a href="projects.html" class="btn-link">View All Projects →</a></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="block alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Gallery</div>
+      <h2>Installation Highlights</h2>
+      <p>Real installations, real results.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item big"><img src="images/kids-net.jpg" alt="Gallery 1" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/balcony-net.jpg" alt="Gallery 2" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/pool-net.jpg" alt="Gallery 3" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/pigeon-net.jpg" alt="Gallery 4" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/window-net.jpg" alt="Gallery 5" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/sports-net.jpg" alt="Gallery 6" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/terrace-net.jpg" alt="Gallery 7" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/invisible-grill.jpg" alt="Gallery 8" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/building-net.jpg" alt="Gallery 9" loading="lazy" /></div>
+    </div>
+    <div class="center"><a href="gallery.html" class="btn-link">View Full Gallery →</a></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Contact</div>
+      <h2>Get a Free Quote Today</h2>
+      <p>Call us now or fill out the form — we'll respond within minutes.</p>
+    </div>
+    <div class="contact-row">
+      <div>
+        <a href="tel:9652518763" class="info-card"><div class="ic">📞</div><div><div class="lab">Call us anytime</div><div class="val">9652518763</div></div></a>
+        <div class="info-card"><div class="ic">✉️</div><div><div class="lab">Email us</div><div class="val">info@srivishnusafetynets.com</div></div></div>
+        <div class="info-card"><div class="ic">📍</div><div><div class="lab">Service area</div><div class="val">Hyderabad & Surrounding Areas</div></div></div>
+      </div>
+      <form class="form-card" id="contactForm">
+        <label>Your Name</label>
+        <input required name="name" placeholder="John Doe" />
+        <label>Phone Number</label>
+        <input required type="tel" name="phone" placeholder="+91 98765 43210" />
+        <label>Message</label>
+        <textarea required rows="5" name="message" placeholder="Tell us about your safety net needs..."></textarea>
+        <button type="submit">Send via WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-floating"></div>
+
+<script src="site.js"></script>
+<script>
+SVSN.renderHeader("Home");
+SVSN.renderFooter();
+SVSN.renderFloating();
+
+// === Hero rotating images ===
+const slides = document.querySelectorAll("#heroSlides .slide");
+const dotsWrap = document.getElementById("heroDots");
+slides.forEach((_, i) => {
+  const b = document.createElement("button");
+  if (i === 0) b.className = "active";
+  b.addEventListener("click", () => goTo(i));
+  dotsWrap.appendChild(b);
+});
+let cur = 0;
+function goTo(i) {
+  slides[cur].classList.remove("active");
+  dotsWrap.children[cur].classList.remove("active");
+  cur = i;
+  slides[cur].classList.add("active");
+  dotsWrap.children[cur].classList.add("active");
+}
+setInterval(() => goTo((cur + 1) % slides.length), 4500);
+
+// === Services preview (8 popular) ===
+const POPULAR = [
+  {t:"Safety Nets",d:"Premium balcony & building safety nets installed by experts.",img:"safety-net.jpg",slug:"safety-nets"},
+  {t:"Balcony Safety Nets",d:"Invisible nylon nets to safeguard balconies.",img:"balcony-net.jpg",slug:"balcony-safety-nets"},
+  {t:"Kids Safety Nets",d:"Child-safe transparent balcony nets.",img:"kids-net.jpg",slug:"kids-safety-nets"},
+  {t:"Pigeon Safety Nets",d:"Stop pigeons from balconies and ducts.",img:"pigeon-net.jpg",slug:"pigeon-safety-nets"},
+  {t:"Swimming Pool Nets",d:"Strong protective covers for residential pools.",img:"pool-net.jpg",slug:"swimming-pool-safety-nets"},
+  {t:"Invisible Grills",d:"Stainless-steel cable grills with a clean look.",img:"invisible-grill.jpg",slug:"invisible-grills"},
+  {t:"Sports Nets",d:"Cricket, football & sports practice nets.",img:"sports-net.jpg",slug:"sports-nets"},
+  {t:"Bird Spikes",d:"Stainless-steel spikes to deter perching birds.",img:"bird-spikes.jpg",slug:"bird-spikes"},
+];
+document.getElementById("servicesGrid").innerHTML = POPULAR.map((s,i) => `
+  <a href="services/${s.slug}.html" class="card" style="animation-delay:${i*40}ms">
+    <div class="card-img">
+      <div class="card-logo"><img src="images/logo.png" alt="" loading="lazy" /></div>
+      <img src="images/${s.img}" alt="${s.t}" loading="lazy" />
+    </div>
+    <div class="card-body"><h3>${s.t}</h3><p>${s.d}</p></div>
+  </a>
+`).join("");
+
+// === Contact form → WhatsApp ===
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target;
+  const text = `Hi, I'm ${f.name.value} (${f.phone.value}). ${f.message.value}`;
+  window.open(`https://wa.me/91${SVSN.PHONE}?text=${encodeURIComponent(text)}`, "_blank");
+  f.reset();
+});
+</script>
+</body>
+</html>

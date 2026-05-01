@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us — Sri Vishnu Safety Nets</title>
+<meta name="description" content="Learn about Sri Vishnu Safety Nets — trusted safety net installation experts with years of experience and a commitment to quality." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .page-hero{background:linear-gradient(135deg,#141414,rgba(255,122,24,.7));color:#fff;padding:80px 0 60px;text-align:center}
+  .page-hero h1{font-size:clamp(36px,5vw,56px);margin-bottom:14px}
+  .page-hero p{font-size:18px;opacity:.9;max-width:680px;margin:0 auto}
+  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;margin:70px 0}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+  .about-grid h2{font-size:34px;margin-bottom:18px}
+  .about-grid p{color:#555;line-height:1.75;margin-bottom:14px}
+  .about-grid img{width:100%;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.15)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:50px 0}
+  @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:#fff;border:1px solid #eee;border-radius:16px;padding:26px;text-align:center;transition:transform .2s,box-shadow .2s}
+  .stat:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
+  .stat .num{font-size:38px;font-weight:800;color:var(--orange);font-family:Poppins,sans-serif}
+  .stat .lbl{color:#666;margin-top:6px}
+  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0 70px}
+  @media(max-width:900px){.values{grid-template-columns:1fr}}
+  .value{background:#fff;border:1px solid #eee;border-radius:16px;padding:28px}
+  .value .ic{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--orange),var(--orange-glow));display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px}
+  .value h3{font-size:20px;margin-bottom:8px}
+  .value p{color:#666;line-height:1.6}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>About Sri Vishnu Safety Nets</h1>
+    <p>Your trusted partner for professional safety net installation across residential & commercial buildings.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <h2>Protecting What Matters Most</h2>
+        <p>Sri Vishnu Safety Nets is a leading provider of high-quality safety net installation services. We specialize in balcony nets, bird nets, pigeon nets, kids safety, building coverage, and many more solutions tailored to your needs.</p>
+        <p>With years of experience and hundreds of happy customers, we're committed to delivering durable, reliable, and aesthetic safety solutions. Every installation is handled by trained professionals using premium materials.</p>
+        <p><strong>We ensure safety, quality, and customer satisfaction.</strong></p>
+        <a href="contact.html" class="btn-hero" style="margin-top:14px">Get a Free Quote →</a>
+      </div>
+      <img src="images/balcony-net.jpg" alt="Professional safety net installation" />
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">10+</div><div class="lbl">Years Experience</div></div>
+      <div class="stat"><div class="num">5000+</div><div class="lbl">Installations</div></div>
+      <div class="stat"><div class="num">20+</div><div class="lbl">Service Types</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">Satisfaction</div></div>
+    </div>
+
+    <h2 style="text-align:center;font-size:34px;margin-bottom:10px">Our Core Values</h2>
+    <p style="text-align:center;color:#666;margin-bottom:26px">What drives us every single day</p>
+    <div class="values">
+      <div class="value"><div class="ic">🛡️</div><h3>Safety First</h3><p>Every product and installation meets strict safety standards to protect your family and property.</p></div>
+      <div class="value"><div class="ic">⭐</div><h3>Premium Quality</h3><p>We use only UV-resistant, weather-proof materials built to last for years without sagging.</p></div>
+      <div class="value"><div class="ic">🤝</div><h3>Customer Trust</h3><p>Transparent pricing, on-time service, and after-installation support — that's our promise.</p></div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-floating"></div>
+<script src="site.js"></script>
+<script>
+  SVSN.renderHeader("About");
+  SVSN.renderFooter();
+  SVSN.renderFloating();
+</script>
+</body>
+</html>
