@@ -115,13 +115,41 @@
   .why-card p{font-size:13.5px;color:rgba(255,255,255,.7)}
 
   /* About */
-  .about-row{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-  @media(max-width:860px){.about-row{grid-template-columns:1fr}}
-  .about-img{
-    background:#fff;border-radius:24px;padding:50px;border:1px solid var(--border);
-    box-shadow:0 20px 50px rgba(255,122,24,.12);text-align:center;position:relative
+ /* About */
+.about-row{
+  display:grid;
+  grid-template-columns:1.2fr 1fr; /* 👈 give more space to image */
+  gap:60px;
+  align-items:center;
+}
+
+@media(max-width:860px){
+  .about-row{
+    grid-template-columns:1fr;
   }
-  .about-img img{width:200px;margin:0 auto}
+}
+
+/* REMOVE CARD LOOK */
+.about-img{
+  background:none;        /* ❌ remove white box */
+  border:none;            /* ❌ remove border */
+  box-shadow:none;        /* ❌ remove shadow */
+  padding:0;              /* ❌ remove padding */
+}
+
+/* FULL IMAGE */
+.about-img img{
+  width:100%;             /* ✅ responsive full width */
+  max-width:650px;        /* ✅ control max size */
+  height:auto;
+  display:block;
+  border-radius:20px;
+}
+
+/* TEXT */
+.about-text{
+  max-width:550px;
+}
   .about-text .eyebrow{color:var(--orange);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
   .about-text h2{font-size:clamp(28px,4vw,42px);margin:10px 0 18px}
   .about-text h2 .accent{color:var(--orange)}
@@ -153,7 +181,8 @@
   @media(max-width:860px){.contact-row{grid-template-columns:1fr}}
   .info-card{
     background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;
-    display:flex;align-items:center;gap:18px;transition:.2s;margin-bottom:14px
+    display:flex;align-items:center;gap:18px;transition:.2s;margin-bottom:14px;  flex-wrap: wrap;           /* ✅ allow wrapping */
+    width: 100%;   
   }
   .info-card:hover{border-color:var(--orange)}
   .info-card .ic{
@@ -241,7 +270,7 @@
 <section class="block alt">
   <div class="container">
     <div class="about-row">
-      <div class="about-img"><img src="images/logo.png" alt="Sri Vishnu Safety Nets" /></div>
+      <div class="about-img"><img src="images/About-us-img.png" alt="Sri Vishnu Safety Nets" /></div>
       <div class="about-text">
         <div class="eyebrow">About Us</div>
         <h2>Reliable Protection You Can <span class="accent">Count On</span></h2>
@@ -312,8 +341,8 @@
     <div class="contact-row">
       <div>
         <a href="tel:9652518763" class="info-card"><div class="ic">📞</div><div><div class="lab">Call us anytime</div><div class="val">9652518763</div></div></a>
-        <div class="info-card"><div class="ic">✉️</div><div><div class="lab">Email us</div><div class="val">info@srivishnusafetynets.com</div></div></div>
-        <div class="info-card"><div class="ic">📍</div><div><div class="lab">Service area</div><div class="val">Hyderabad & Surrounding Areas</div></div></div>
+        <div class="info-card"><div class="ic">✉️</div><div><div class="lab">Email us</div><div class="val">SriVishnuSafetyNets@gmail.com</div></div></div>
+        <div class="info-card"><div class="ic">📍</div><div><div class="lab">Service area</div><div class="val">Andhra Pradesh & Surrounding Areas</div></div></div>
       </div>
       <form class="form-card" id="contactForm">
         <label>Your Name</label>

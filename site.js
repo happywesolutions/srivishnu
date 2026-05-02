@@ -72,7 +72,7 @@ function renderHeader(activeLabel) {
                     <a href="${item.href}" class="nav-link ${active}">
                       ${item.label}
                       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                    </a>
+                    </a>  
                     <div class="dropdown">
                       <div class="dropdown-inner">
                         <div class="items">
@@ -123,13 +123,14 @@ function renderFooter() {
       <div class="container footer-grid">
         <div class="f-col">
           <div class="f-brand">
-            <div class="f-logo"><img src="images/logo.png" alt="Sri Vishnu Safety Nets" /></div>
+            <div class="f-logo"><img src="/images/logo.png" alt="Sri Vishnu Safety Nets" /></div>
+           
             <div>
               <div class="f-name">SRI VISHNU</div>
               <div class="f-sub">SAFETY NETS</div>
             </div>
           </div>
-          <p class="f-about">Reliable and durable safety net solutions for homes and businesses across Hyderabad.</p>
+          <p class="f-about">Reliable and durable safety net solutions for homes and businesses across Andhra Pradesh.</p>
         </div>
         <div class="f-col">
           <h4>Quick Links</h4>
@@ -158,8 +159,8 @@ function renderFooter() {
           <h4>Contact Us</h4>
           <ul class="f-contact">
             <li><span class="f-ic">📞</span><a href="${TEL_LINK}">${PHONE}</a></li>
-            <li><span class="f-ic">✉️</span>info@srivishnusafetynets.com</li>
-            <li><span class="f-ic">📍</span>Hyderabad, Telangana, India</li>
+            <li><span class="f-ic">✉️</span><a href="mailto:sreevishnusafetynets0@gmail.com">sreevishnusafetynets0@gmail.com</a></li>
+            <li><span class="f-ic">📍</span>Andhra Pradesh, India</li>
           </ul>
           <div class="f-social">
             <a href="#" aria-label="Facebook">f</a>
@@ -167,7 +168,8 @@ function renderFooter() {
           </div>
         </div>
       </div>
-      <div class="container f-copy">© ${new Date().getFullYear()} Sri Vishnu Safety Nets. All rights reserved.</div>
+      <div class="container f-copy">© ${new Date().getFullYear()} Sri Vishnu Safety Nets. All rights reserved.<a href="https://www.happywesolutions.com" target="_blank" rel="noopener">Happy We Solutions❤️</a></div>
+      
     </footer>
   `;
 }
