@@ -1,5 +1,19 @@
 // === Sri Vishnu Safety Nets — Shared site code (header + floating buttons) ===
 
+// Auto-load premium animations (CSS + JS) on every page
+(function loadAnimations(){
+  const inSub = location.pathname.includes('/services/');
+  const base = inSub ? '../' : '';
+  if(!document.querySelector('link[data-svsn-anim]')){
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = base + 'animations.css';
+    link.setAttribute('data-svsn-anim','1');
+    document.head.appendChild(link);
+  }
+  window.__SVSN_ANIM_SRC = base + 'animations.js';
+})();
+
 const NAV = [
   { label: "Home", href: "index.html" },
   {
@@ -47,6 +61,7 @@ const NAV = [
 const PHONE = "9652518763";
 const WA_LINK = `https://wa.me/91${PHONE}?text=${encodeURIComponent("Hi, I'm interested in safety nets installation.")}`;
 const TEL_LINK = `tel:${PHONE}`;
+const MAIL_LINK = `mailto:sreevishnusafetynets0@gmail.com`;
 
 function renderHeader(activeLabel) {
   const html = `
@@ -72,7 +87,7 @@ function renderHeader(activeLabel) {
                     <a href="${item.href}" class="nav-link ${active}">
                       ${item.label}
                       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                    </a>  
+                    </a>
                     <div class="dropdown">
                       <div class="dropdown-inner">
                         <div class="items">
@@ -124,13 +139,12 @@ function renderFooter() {
         <div class="f-col">
           <div class="f-brand">
             <div class="f-logo"><img src="/images/logo.png" alt="Sri Vishnu Safety Nets" /></div>
-           
             <div>
               <div class="f-name">SRI VISHNU</div>
               <div class="f-sub">SAFETY NETS</div>
             </div>
           </div>
-          <p class="f-about">Reliable and durable safety net solutions for homes and businesses across Andhra Pradesh.</p>
+          <p class="f-about">Reliable and durable safety net solutions for homes and businesses across Hyderabad.</p>
         </div>
         <div class="f-col">
           <h4>Quick Links</h4>
@@ -159,8 +173,8 @@ function renderFooter() {
           <h4>Contact Us</h4>
           <ul class="f-contact">
             <li><span class="f-ic">📞</span><a href="${TEL_LINK}">${PHONE}</a></li>
-            <li><span class="f-ic">✉️</span><a href="mailto:sreevishnusafetynets0@gmail.com">sreevishnusafetynets0@gmail.com</a></li>
-            <li><span class="f-ic">📍</span>Andhra Pradesh, India</li>
+            <li><span class="f-ic">✉️</span><a href="${MAIL_LINK}">sreevishnusafetynets0@gmail.com</a></li>
+            <li><span class="f-ic">📍</span>AndhraPradesh India</li>
           </ul>
           <div class="f-social">
             <a href="#" aria-label="Facebook">f</a>
@@ -168,8 +182,7 @@ function renderFooter() {
           </div>
         </div>
       </div>
-      <div class="container f-copy">© ${new Date().getFullYear()} Sri Vishnu Safety Nets. All rights reserved.<a href="https://www.happywesolutions.com" target="_blank" rel="noopener">Happy We Solutions❤️</a></div>
-      
+      <div class="container f-copy">© ${new Date().getFullYear()} Sri Vishnu Safety Nets. All rights reserved.<a href="https://happywesolutions.com/" target="_blank" rel="noopener noreferrer">Happy We Solutions❤️</a></div>
     </footer>
   `;
 }
@@ -183,8 +196,27 @@ function renderFloating() {
       <a class="float-btn call" href="${TEL_LINK}" aria-label="Call now">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </a>
+     <a class="float-btn mail" 
+   href="mailto:sreevishnusafetynets0@gmail.com" 
+   aria-label="Email us"
+   style="background:rgb(56 87 200); width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,.25);">
+
+  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" width="22" height="22">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+
+</a>
     </div>
   `;
+  // Lazy-load premium animations once dynamic DOM is ready
+  if(!document.querySelector('script[data-svsn-anim]')){
+    const s = document.createElement('script');
+    s.src = window.__SVSN_ANIM_SRC || 'animations.js';
+    s.defer = true;
+    s.setAttribute('data-svsn-anim','1');
+    setTimeout(() => document.body.appendChild(s), 30);
+  }
 }
 
-window.SVSN = { NAV, PHONE, WA_LINK, TEL_LINK, renderHeader, renderFooter, renderFloating };
+window.SVSN = { NAV, PHONE, WA_LINK, TEL_LINK, MAIL_LINK, renderHeader, renderFooter, renderFloating };

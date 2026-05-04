@@ -115,41 +115,45 @@
   .why-card p{font-size:13.5px;color:rgba(255,255,255,.7)}
 
   /* About */
- /* About */
-.about-row{
+ .about-row{
   display:grid;
-  grid-template-columns:1.2fr 1fr; /* 👈 give more space to image */
+  grid-template-columns:1.2fr 1fr;
   gap:60px;
   align-items:center;
 }
 
-@media(max-width:860px){
-  .about-row{
-    grid-template-columns:1fr;
-  }
-}
-
-/* REMOVE CARD LOOK */
 .about-img{
-  background:none;        /* ❌ remove white box */
-  border:none;            /* ❌ remove border */
-  box-shadow:none;        /* ❌ remove shadow */
-  padding:0;              /* ❌ remove padding */
+  padding:0;
 }
 
-/* FULL IMAGE */
 .about-img img{
-  width:100%;             /* ✅ responsive full width */
-  max-width:650px;        /* ✅ control max size */
+  width:100% !important;
+  max-width:700px !important;
   height:auto;
-  display:block;
   border-radius:20px;
 }
 
-/* TEXT */
 .about-text{
   max-width:550px;
 }
+@media (max-width: 860px) {
+
+  .about-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-img img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-text {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+  /* .about-img img{width:200px;margin:0 auto} */
   .about-text .eyebrow{color:var(--orange);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
   .about-text h2{font-size:clamp(28px,4vw,42px);margin:10px 0 18px}
   .about-text h2 .accent{color:var(--orange)}
@@ -181,9 +185,9 @@
   @media(max-width:860px){.contact-row{grid-template-columns:1fr}}
   .info-card{
     background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;
-    display:flex;align-items:center;gap:18px;transition:.2s;margin-bottom:14px;  flex-wrap: wrap;           /* ✅ allow wrapping */
-    width: 100%;   
-  }
+    display:flex;align-items:center;gap:18x;transition:.2s;margin-bottom:14px; flex-wrap: wrap;
+    width:100%;
+   }
   .info-card:hover{border-color:var(--orange)}
   .info-card .ic{
     width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--orange),var(--orange-glow));
@@ -204,8 +208,126 @@
     font-weight:600;font-size:15px;transition:.2s
   }
   .form-card button:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(255,122,24,.35)}
+
+  /* === 3D Showcase === */
+  .showcase3d{
+    position:relative;padding:100px 0;background:linear-gradient(135deg,#1a1a1a 0%,#2d1e0f 60%,#1a1a1a 100%);
+    color:#fff;overflow:hidden;perspective:1400px;
+  }
+  .showcase3d::before,.showcase3d::after{
+    content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.35;pointer-events:none
+  }
+  .showcase3d::before{background:var(--orange);top:-200px;left:-150px}
+  .showcase3d::after{background:var(--orange-glow);bottom:-200px;right:-150px;opacity:.25}
+  .showcase3d .section-head h2{color:#fff}
+  .showcase3d .section-head p{color:rgba(255,255,255,.7)}
+  .stage{
+    position:relative;height:560px;max-width:1100px;margin:0 auto;
+    transform-style:preserve-3d;transform:rotateX(8deg);
+    animation:stageFloat 8s ease-in-out infinite alternate;
+  }
+  @keyframes stageFloat{
+    0%{transform:rotateX(8deg) rotateY(-6deg)}
+    100%{transform:rotateX(4deg) rotateY(6deg)}
+  }
+  .stage .floater{
+    position:absolute;border-radius:20px;overflow:hidden;
+    box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);
+    transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.7,.2,1);
+  }
+  .stage .floater img{width:100%;height:100%;object-fit:cover;display:block}
+  .stage .floater::after{
+    content:attr(data-label);position:absolute;left:14px;bottom:14px;z-index:2;
+    background:rgba(255,122,24,.95);color:#fff;font-size:12px;font-weight:600;
+    padding:6px 12px;border-radius:99px;letter-spacing:.04em;
+  }
+  .stage .floater:hover{transform:translateZ(80px) scale(1.04)!important}
+
+  .f1{top:6%;left:4%;width:300px;height:220px;transform:translateZ(60px) rotate(-6deg);animation:float1 7s ease-in-out infinite alternate}
+  .f2{top:0%;left:38%;width:340px;height:260px;transform:translateZ(140px) rotate(2deg);animation:float2 9s ease-in-out infinite alternate}
+  .f3{top:10%;right:4%;width:300px;height:220px;transform:translateZ(40px) rotate(7deg);animation:float3 8s ease-in-out infinite alternate}
+  .f4{bottom:8%;left:14%;width:280px;height:200px;transform:translateZ(90px) rotate(4deg);animation:float4 10s ease-in-out infinite alternate}
+  .f5{bottom:4%;right:18%;width:320px;height:230px;transform:translateZ(120px) rotate(-5deg);animation:float5 9s ease-in-out infinite alternate}
+  .f6{top:42%;left:42%;width:240px;height:170px;transform:translateZ(180px) rotate(-2deg);animation:float6 11s ease-in-out infinite alternate}
+
+  @keyframes float1{from{transform:translateZ(60px) translateY(0) rotate(-6deg)}to{transform:translateZ(80px) translateY(-22px) rotate(-4deg)}}
+  @keyframes float2{from{transform:translateZ(140px) translateY(0) rotate(2deg)}to{transform:translateZ(170px) translateY(-30px) rotate(4deg)}}
+  @keyframes float3{from{transform:translateZ(40px) translateY(0) rotate(7deg)}to{transform:translateZ(70px) translateY(-18px) rotate(5deg)}}
+  @keyframes float4{from{transform:translateZ(90px) translateY(0) rotate(4deg)}to{transform:translateZ(120px) translateY(-26px) rotate(2deg)}}
+  @keyframes float5{from{transform:translateZ(120px) translateY(0) rotate(-5deg)}to{transform:translateZ(150px) translateY(-22px) rotate(-3deg)}}
+  @keyframes float6{from{transform:translateZ(180px) translateY(0) rotate(-2deg)}to{transform:translateZ(210px) translateY(-14px) rotate(0)}}
+
+  /* Real-work strip */
+  .realwork{padding:80px 0;background:var(--bg)}
+  .realwork-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;
+  }
+  .rw-card{
+    position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);transition:transform .4s,box-shadow .4s;
+  }
+  .rw-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .rw-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 30px 60px rgba(255,122,24,.3)}
+  .rw-card:hover img{transform:scale(1.12)}
+  .rw-card .tag{
+    position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);color:var(--orange);
+    font-size:11px;font-weight:700;padding:5px 10px;border-radius:99px;letter-spacing:.06em;text-transform:uppercase
+  }
+  .rw-card .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:18px;color:#fff;z-index:2;
+    background:linear-gradient(to top,rgba(20,20,20,.92),transparent);
+  }
+  .rw-card .cap h4{font-size:16px;margin-bottom:4px}
+  .rw-card .cap span{font-size:12px;opacity:.85}
+
+  @media(max-width:760px){
+    .stage{height:680px;transform:none;animation:none}
+    .stage .floater{position:relative;width:90%!important;height:180px!important;margin:14px auto;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important;animation:none!important;display:block}
+    .showcase3d{padding:60px 0}
+  }
+  @media(max-width:760px){
+
+  .showcase3d{
+    padding:60px 0;
+  }
+
+  /* REMOVE 3D EFFECT */
+  .stage{
+    height:auto;
+    transform:none;
+    animation:none;
+
+    display:grid;                 /* ✅ GRID LAYOUT */
+    grid-template-columns:1fr;    /* 1 column */
+    gap:16px;
+  }
+
+  /* CLEAN CARD STYLE */
+  .stage .floater{
+    position:relative !important;
+    width:100% !important;
+    height:200px !important;
+    margin:0 auto;
+    transform:none !important;
+    animation:none !important;
+
+    border-radius:16px;
+  }
+
+  /* IMAGE FIT */
+  .stage .floater img{
+    object-fit:cover;
+  }
+
+  /* LABEL FIX */
+  .stage .floater::after{
+    font-size:11px;
+    padding:5px 10px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <div id="site-header"></div>
@@ -231,6 +353,44 @@
       <div class="stat"><div class="v">5,000+</div><div class="l">Happy Clients</div></div>
       <div class="stat"><div class="v">4.9/5</div><div class="l">Customer Rating</div></div>
       <div class="stat"><div class="v">10+ yrs</div><div class="l">Experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3D SHOWCASE -->
+<section class="showcase3d">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--orange)">Live Showcase</div>
+      <h2>3D View of Our Net Installations</h2>
+      <p>Floating snapshots from real projects — hover to lift them forward.</p>
+    </div>
+    <div class="stage">
+      <div class="floater f1" data-label="Balcony"><img src="images/balconyopen.jpeg" alt="Balcony safety net" loading="lazy" /></div>
+      <div class="floater f2" data-label="Building"><img src="images/buildingcoverage.jpeg" alt="Building coverage net" loading="lazy" /></div>
+      <div class="floater f3" data-label="Pigeon"><img src="images/pigeonsafets.jpeg" alt="Pigeon net" loading="lazy" /></div>
+      <div class="floater f4" data-label="Pool"><img src="images/pool-net.jpg" alt="Swimming pool safety net" loading="lazy" /></div>
+      <div class="floater f5" data-label="Sports"><img src="images/cricketsafety.jpeg" alt="Cricket sports net" loading="lazy" /></div>
+      <div class="floater f6" data-label="Kids"><img src="images/kids-net.jpg" alt="Children safety net" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL-TIME WORK -->
+<section class="realwork">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">On-Site Work</div>
+      <h2>Real-Time Installation Photos</h2>
+      <p>Captured live from our recent installations across Hyderabad.</p>
+    </div>
+    <div class="realwork-grid">
+      <div class="rw-card"><span class="tag">Live</span><img src="images/balcony.jpeg" alt="Balcony installation" loading="lazy" /><div class="cap"><h4>Balcony Net Install</h4><span>Madhapur · Today</span></div></div>
+      <div class="rw-card"><span class="tag">Live</span><img src="images/buildingcoverage.jpeg" alt="Building net" loading="lazy" /><div class="cap"><h4>Building Coverage</h4><span>Gachibowli · Yesterday</span></div></div>
+      <div class="rw-card"><span class="tag">New</span><img src="images/pigeonhall.jpeg" alt="Pigeon net" loading="lazy" /><div class="cap"><h4>Anti-Pigeon Net</h4><span>Kukatpally</span></div></div>
+      <div class="rw-card"><span class="tag">New</span><img src="images/cricketnets.jpeg" alt="Sports net" loading="lazy" /><div class="cap"><h4>Cricket Practice</h4><span>Kondapur</span></div></div>
+      <div class="rw-card"><span class="tag">Live</span><img src="images/pool-net.jpg" alt="Pool" loading="lazy" /><div class="cap"><h4>Pool Safety Cover</h4><span>Jubilee Hills</span></div></div>
+      <div class="rw-card"><span class="tag">New</span><img src="images/grills.jpeg" alt="Invisible grill" loading="lazy" /><div class="cap"><h4>Invisible Grill</h4><span>Banjara Hills</span></div></div>
     </div>
   </div>
 </section>
@@ -297,7 +457,7 @@
     </div>
     <div class="projects-grid">
       <div class="project"><img src="images/balcony-net.jpg" alt="Balcony Safety Net" loading="lazy" /><div class="project-info"><span class="cat">Residential</span><h3>Balcony Safety Net</h3></div></div>
-      <div class="project"><img src="images/pigeon-net.jpg" alt="Anti-Pigeon Net" loading="lazy" /><div class="project-info"><span class="cat">Commercial</span><h3>Anti-Pigeon Net</h3></div></div>
+      <div class="project"><img src="images/pigeon-safety.jpeg" alt="Anti-Pigeon Net" loading="lazy" /><div class="project-info"><span class="cat">Commercial</span><h3>Anti-Pigeon Net</h3></div></div>
       <div class="project"><img src="images/kids-net.jpg" alt="Children Safety Net" loading="lazy" /><div class="project-info"><span class="cat">Apartment</span><h3>Children Safety Net</h3></div></div>
       <div class="project"><img src="images/sports-net.jpg" alt="Cricket Practice Net" loading="lazy" /><div class="project-info"><span class="cat">Sports</span><h3>Cricket Practice Net</h3></div></div>
       <div class="project"><img src="images/pool-net.jpg" alt="Pool Safety Cover" loading="lazy" /><div class="project-info"><span class="cat">Villa</span><h3>Pool Safety Cover</h3></div></div>
@@ -319,7 +479,7 @@
       <div class="gallery-item big"><img src="images/kids-net.jpg" alt="Gallery 1" loading="lazy" /></div>
       <div class="gallery-item"><img src="images/balcony-net.jpg" alt="Gallery 2" loading="lazy" /></div>
       <div class="gallery-item"><img src="images/pool-net.jpg" alt="Gallery 3" loading="lazy" /></div>
-      <div class="gallery-item"><img src="images/pigeon-net.jpg" alt="Gallery 4" loading="lazy" /></div>
+      <div class="gallery-item"><img src="images/pigeonhall.jpeg" alt="Gallery 4" loading="lazy" /></div>
       <div class="gallery-item"><img src="images/window-net.jpg" alt="Gallery 5" loading="lazy" /></div>
       <div class="gallery-item"><img src="images/sports-net.jpg" alt="Gallery 6" loading="lazy" /></div>
       <div class="gallery-item"><img src="images/terrace-net.jpg" alt="Gallery 7" loading="lazy" /></div>
@@ -341,8 +501,8 @@
     <div class="contact-row">
       <div>
         <a href="tel:9652518763" class="info-card"><div class="ic">📞</div><div><div class="lab">Call us anytime</div><div class="val">9652518763</div></div></a>
-        <div class="info-card"><div class="ic">✉️</div><div><div class="lab">Email us</div><div class="val">SriVishnuSafetyNets@gmail.com</div></div></div>
-        <div class="info-card"><div class="ic">📍</div><div><div class="lab">Service area</div><div class="val">Andhra Pradesh & Surrounding Areas</div></div></div>
+        <div class="info-card"><div class="ic">✉️</div><div><div class="lab">Email us</div><div class="val">sreevishnusafetynets0@gmail.com</div></div></div>
+        <div class="info-card"><div class="ic">📍</div><div><div class="lab">Service area</div><div class="val">AndhraPradesh India</div></div></div>
       </div>
       <form class="form-card" id="contactForm">
         <label>Your Name</label>
@@ -353,6 +513,24 @@
         <textarea required rows="5" name="message" placeholder="Tell us about your safety net needs..."></textarea>
         <button type="submit">Send via WhatsApp →</button>
       </form>
+    </div>
+  </div>
+</section>
+<!-- MAP -->
+ <section class="block map-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Our Service Location</h2>
+      <p>We provide services across Andhra Pradesh</p>
+    </div>
+
+    <div class="map-card">
+      <iframe 
+        src="https://maps.google.com/maps?q=Andhra%20Pradesh&t=&z=7&ie=UTF8&iwloc=&output=embed"
+        frameborder="0"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
     </div>
   </div>
 </section>
@@ -390,10 +568,10 @@ const POPULAR = [
   {t:"Safety Nets",d:"Premium balcony & building safety nets installed by experts.",img:"safety-net.jpg",slug:"safety-nets"},
   {t:"Balcony Safety Nets",d:"Invisible nylon nets to safeguard balconies.",img:"balcony-net.jpg",slug:"balcony-safety-nets"},
   {t:"Kids Safety Nets",d:"Child-safe transparent balcony nets.",img:"kids-net.jpg",slug:"kids-safety-nets"},
-  {t:"Pigeon Safety Nets",d:"Stop pigeons from balconies and ducts.",img:"pigeon-net.jpg",slug:"pigeon-safety-nets"},
+  {t:"Pigeon Safety Nets",d:"Stop pigeons from balconies and ducts.",img:"pigeon-safety.jpeg",slug:"pigeon-safety-nets"},
   {t:"Swimming Pool Nets",d:"Strong protective covers for residential pools.",img:"pool-net.jpg",slug:"swimming-pool-safety-nets"},
   {t:"Invisible Grills",d:"Stainless-steel cable grills with a clean look.",img:"invisible-grill.jpg",slug:"invisible-grills"},
-  {t:"Sports Nets",d:"Cricket, football & sports practice nets.",img:"sports-net.jpg",slug:"sports-nets"},
+  {t:"Sports Nets",d:"Cricket, football & sports practice nets.",img:"cricketsafety.jpeg",slug:"sports-nets"},
   {t:"Bird Spikes",d:"Stainless-steel spikes to deter perching birds.",img:"bird-spikes.jpg",slug:"bird-spikes"},
 ];
 document.getElementById("servicesGrid").innerHTML = POPULAR.map((s,i) => `
